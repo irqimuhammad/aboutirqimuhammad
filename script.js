@@ -1,4 +1,4 @@
-// Theme, mobile menu, reveal, lightbox, contact simulation
+// Theme, mobile menu, reveal, lightbox, contact simulation + premium enhancements
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;
   const themeBtns = document.querySelectorAll('#theme-toggle');
@@ -9,14 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const lbCaption = document.getElementById('lb-caption');
   const lbClose = document.getElementById('lb-close');
 
-  // year
+  /* ---------------- YEAR ---------------- */
   yearEls.forEach(el => el.textContent = new Date().getFullYear());
 
-  // load theme from storage
+  /* ---------------- THEME ---------------- */
   const saved = localStorage.getItem('theme');
   if (saved === 'light') body.classList.add('light');
 
-  // theme toggle
   themeBtns.forEach(btn => {
     btn.textContent = body.classList.contains('light') ? 'Dark' : 'Light';
     btn.addEventListener('click', () => {
@@ -26,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // burger toggle for small screens
+  /* ---------------- BURGER NAV ---------------- */
   if (burger) {
     burger.addEventListener('click', () => {
       const links = document.querySelector('.nav-links');
@@ -44,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // reveal on scroll
+  /* ---------------- SCROLL REVEAL ---------------- */
   const reveals = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -53,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.12 });
   reveals.forEach(r => obs.observe(r));
 
-  // Lightbox: open when clicking a certificate thumbnail
+  /* ---------------- LIGHTBOX ---------------- */
   document.querySelectorAll('.cert-thumb img, .cert-thumb').forEach(el => {
     el.addEventListener('click', (e) => {
       const imgEl = e.target.tagName === 'IMG' ? e.target : e.currentTarget.querySelector('img');
@@ -67,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // close lightbox
   function closeLb(){
     lightbox.classList.remove('active');
     lightbox.setAttribute('aria-hidden','true');
@@ -81,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeLb();
   });
 
-  // Contact form simulation
+  /* ---------------- CONTACT SIMULATION ---------------- */
   const forms = document.querySelectorAll('#contact-form');
   forms.forEach(form => {
     const formMsg = form.querySelector('#form-msg');
@@ -92,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Smooth internal anchor scrolling
+  /* ---------------- SMOOTH SCROLL ---------------- */
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click', function(e){
       const href = this.getAttribute('href');
@@ -103,4 +101,68 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+
+  /* ======================================================
+       PREMIUM FEATURES
+     ====================================================== */
+
+  /* ---------------- PRELOADER ---------------- */
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    const hide = () => preloader.classList.add('hidden');
+    window.addEventListener('load', hide);
+    setTimeout(hide, 1500);
+  }
+
+  /* ---------------- HERO PARALLAX ---------------- */
+  const parallaxLayer = document.getElementById('heroParallax');
+  const hero = document.querySelector('.hero');
+
+  if (parallaxLayer && hero) {
+    hero.addEventListener('mousemove', (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;  
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      parallaxLayer.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
+    });
+
+    window.addEventListener('scroll', () => {
+      const t = Math.min(1, window.scrollY / 500);
+      parallaxLayer.style.opacity = (1 - t * 0.4);
+      parallaxLayer.style.transform = `translateY(${t * -15}px)`;
+    }, { passive: true });
+  }
+
+  /* ---------------- IMPACT COUNTER ---------------- */
+  const counters = document.querySelectorAll('.count');
+  if (counters.length) {
+    const animateCounter = (el, target) => {
+      let start = 0;
+      const duration = 900;
+      const startTime = performance.now();
+
+      const update = (time) => {
+        const progress = Math.min(1, (time - startTime) / duration);
+        el.textContent = Math.floor(progress * target);
+        if (progress < 1) requestAnimationFrame(update);
+      };
+
+      requestAnimationFrame(update);
+    };
+
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.target || "0");
+          animateCounter(el, target);
+          counterObs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    counters.forEach(c => counterObs.observe(c));
+  }
+
 });
