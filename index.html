@@ -1,0 +1,93 @@
+b <!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Irqi Muhammad Fakhrezi — Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav-wrapper">
+    <nav class="container nav">
+      <a class="logo" href="index.html">Irqi Muhammad Fakhrezi</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="certificates.html">Certificates</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a class="cv-btn" href="CV_Irqi_Muhammad_Fakhrezi.pdf" download>Download CV</a>
+        <button class="burger" id="burger" aria-label="menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container reveal">
+      <div class="hero-left">
+        <h1>Hi, I’m <span class="accent">Irqi</span></h1>
+        <p class="lead">S1 Bisnis Digital • Visual Designer • Social Media Specialist</p>
+
+        <div class="cta-row">
+          <a class="btn" href="projects.html">See My Work</a>
+          <a class="btn btn-outline" href="contact.html">Contact Me</a>
+        </div>
+
+        <ul class="micro">
+          <li>Perumahan Binong, Curug, Kab. Tangerang</li>
+          <li>irqifakhrezi03@gmail.com</li>
+          <li>+62 857-1764-6056</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card">
+        <img src="profile.jpg" alt="Irqi profile" class="profile-photo">
+        <div class="card-info">
+          <h3>Irqi Muhammad Fakhrezi</h3>
+          <p class="muted">Digital Business Student — Visual Designer</p>
+          <div class="socials">
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Tiktok">Tiktok</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section container reveal">
+      <h2>Quick highlights</h2>
+      <div class="cards">
+        <div class="card small">
+          <h4>Education</h4>
+          <p>SMKN 7 Kab Tangerang (DKV) • UNJ (S1 Bisnis Digital)</p>
+        </div>
+        <div class="card small">
+          <h4>Experience</h4>
+          <p>Praktek Kerja Lapangan — Design Grafis & Social Media Specialist (ASSA)</p>
+        </div>
+        <div class="card small">
+          <h4>Certificates</h4>
+          <p>Beberapa sertifikat kursus & akademik (lihat halaman Certificates)</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Irqi Muhammad Fakhrezi — All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="lb-close" class="lb-close" aria-label="Close">✕</button>
+    <img id="lb-img" src="" alt="certificate" />
+    <div id="lb-caption" class="lb-caption"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
