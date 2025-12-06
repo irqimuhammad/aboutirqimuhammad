@@ -7,33 +7,34 @@
   <link rel="stylesheet" href="style.css">
   
   <style>
-    .ti-card {
-      /* Mengambil base style dari project-card */
+    /* Memaksa kartu agar tingginya 100% mengisi Grid */
+    .experience-card {
       background: var(--card);
-      border-radius: 14px; /* Radius sama dengan project */
+      border-radius: 14px;
       border: 1px solid rgba(255, 255, 255, 0.02);
-      padding: 24px; /* Padding lebih lega */
-      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
-      position: relative;
+      padding: 30px; /* Padding luas biar elegan */
+      height: 100%; /* KUNCI: Agar tinggi kartu sama rata */
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
     }
 
-    /* Efek Hover sama persis dengan Project */
-    .ti-card:hover {
+    .experience-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 20px 40px rgba(0,0,0,0.4);
       border-color: rgba(255,255,255,0.1);
     }
 
-    /* Mempercantik List Jobdesk */
+    /* Styling List Jobdesk */
     .job-desc {
-      margin-top: 12px;
+      margin-top: auto; /* Dorong list ke bawah agar rapi */
       padding-left: 0;
       list-style: none;
     }
     .job-desc li {
       position: relative;
       padding-left: 20px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       color: var(--muted);
       font-size: 14px;
       line-height: 1.6;
@@ -44,6 +45,20 @@
       position: absolute;
       left: 0;
       font-weight: bold;
+      font-size: 18px; /* Bullet lebih besar sedikit */
+    }
+
+    /* Label Waktu */
+    .time-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      border: 1px solid rgba(255,255,255,0.05);
     }
   </style>
 </head>
@@ -55,7 +70,8 @@
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="experience.html" class="active">Experience</a></li> <li><a href="projects.html">Projects</a></li>
+        <li><a href="experience.html" class="active">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
         <li><a href="certificates.html">Certificates</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -69,88 +85,51 @@
   <main class="container reveal">
     
     <section class="section">
-      <div class="intro" style="margin-bottom: 2rem;">
-        <h2>Work <span class="accent">Experience</span></h2>
-        <p class="muted">Perjalanan karir profesional dan project.</p>
+      <div class="intro" style="margin-bottom: 3rem; text-align: center;">
+        <h1>Work <span class="accent">Experience</span></h1>
+        <p class="muted">Pengalaman Internship dan Project.</p>
       </div>
 
-      <div class="timeline">
+      <div class="projects-grid">
 
-        <div class="timeline-item">
-          <div class="ti-left">
-            <strong>Mar — Jun 2025</strong>
-            <br><span class="accent" style="font-size:13px; font-weight:600;">Partner Project</span>
-          </div>
-          <div class="ti-card">
-            <h3>Marketing Management Partner</h3>
-            <p class="muted" style="margin-bottom: 12px;">Sanggar Daya Presta</p>
-            <p style="font-size: 15px; line-height: 1.6;">
-              Menjadi partner kerjasama dalam proyek Mata Kuliah Marketing Management, berfokus pada strategi kreatif dan visual branding.
-            </p>
+        <article>
+          <div class="experience-card">
+            <div>
+              <span class="time-badge">Mar — Jun 2025</span>
+              <h3 style="margin-bottom: 6px;">Marketing Management Partner</h3>
+              <p class="accent" style="font-size: 14px; font-weight: 600; margin-bottom: 16px;">Sanggar Daya Presta</p>
+              <p style="font-size: 15px; line-height: 1.7; color: #ddd; margin-bottom: 20px;">
+                Menjadi partner kerjasama dalam proyek Mata Kuliah Marketing Management. Berkerja di bidang Desain Grafis dan Analisis Strategi.
+              </p>
+            </div>
+            
             <ul class="job-desc">
-              <li>Membuat aset Desain Grafis: Company Profile, Kop Surat, Ratecard, Poster, dan Kartu Nama.</li>
-              <li>Menganalisis kampanye digital dan merancang strategi pemasaran yang efektif.</li>
-              <li>Mengembangkan konten visual untuk meningkatkan <i>brand awareness</i> sanggar.</li>
+              <li>Membuat Company Profile, Kop Surat, Ratecard, Poster, dan Kartu Nama.</li>
+              <li>Menganalisis kampanye digital dan strategi pemasaran.</li>
+              <li>Pengembangan konten visual untuk branding sanggar.</li>
             </ul>
           </div>
-        </div>
+        </article>
 
-        <div class="timeline-item">
-          <div class="ti-left">
-            <strong>Jul — Des 2023</strong>
-            <br><span class="accent" style="font-size:13px; font-weight:600;">Internship</span>
-          </div>
-          <div class="ti-card">
-            <h3>Graphic Design & Social Media Specialist</h3>
-            <p class="muted" style="margin-bottom: 12px;">ASSA Corporation</p>
-            <p style="font-size: 15px; line-height: 1.6;">
-              Bertanggung jawab penuh atas visual branding dan manajemen konten media sosial perusahaan selama masa magang.
-            </p>
+        <article>
+          <div class="experience-card">
+            <div>
+              <span class="time-badge">Jul — Des 2023</span>
+              <h3 style="margin-bottom: 6px;">Graphic Design & Socmed Specialist</h3>
+              <p class="accent" style="font-size: 14px; font-weight: 600; margin-bottom: 16px;">ASSA Corporation</p>
+              <p style="font-size: 15px; line-height: 1.7; color: #ddd; margin-bottom: 20px;">
+                Praktik Kerja Lapangan dengan tanggung jawab penuh pada pembuatan materi visual dan manajemen media sosial.
+              </p>
+            </div>
+
             <ul class="job-desc">
-              <li>Membuat materi desain harian: Banner, Poster, dan Feed Instagram/TikTok.</li>
-              <li>Melakukan editing video dokumentasi dan promosi untuk kebutuhan publikasi.</li>
-              <li>Mengelola media sosial mulai dari perumusan konsep, pembuatan aset, hingga penjadwalan konten.</li>
-              <li>Menjaga konsistensi branding dan kualitas penyampaian pesan perusahaan.</li>
+              <li>Membuat desain poster, banner, dan konten visual harian.</li>
+              <li>Editing video untuk kebutuhan publikasi dan dokumentasi.</li>
+              <li>Mengelola konten Instagram & TikTok (konsep, aset, jadwal).</li>
+              <li>Menjaga konsistensi branding perusahaan.</li>
             </ul>
           </div>
-        </div>
-
-      </div>
-    </section>
-
-    <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.05); margin: 3rem 0;">
-
-    <section class="section">
-      <div class="intro" style="margin-bottom: 2rem;">
-        <h2>Education <span class="accent">History</span></h2>
-        <p class="muted">Latar belakang pendidikan formal.</p>
-      </div>
-
-      <div class="timeline">
-        
-        <div class="timeline-item">
-          <div class="ti-left">
-            <strong>Present</strong>
-            <br><span class="muted">S1</span>
-          </div>
-          <div class="ti-card">
-            <h3>Universitas Negeri Jakarta (UNJ)</h3>
-            <p class="muted">S1 Bisnis Digital</p>
-            <p style="font-size:14px; margin-top:8px;">Fokus pada strategi bisnis digital, e-commerce, dan analisis pasar.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="ti-left">
-            <strong>Past</strong>
-            <br><span class="muted">SMK</span>
-          </div>
-          <div class="ti-card">
-            <h3>SMKN 7 Kab. Tangerang</h3>
-            <p class="muted">Desain Komunikasi Visual (DKV)</p>
-            <p style="font-size:14px; margin-top:8px;">Mendalami desain grafis, fotografi, videografi, dan software Adobe Creative Suite.</p>
-          </div>
-        </div>
+        </article>
 
       </div>
     </section>
