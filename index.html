@@ -5,89 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Irqi Muhammad Fakhrezi — Portfolio</title>
   <link rel="stylesheet" href="style.css">
-  <!-- small inline styles needed for preloader & parallax overlay (keamanan: ringan) -->
-  <style>
-    /* Preloader */
-    #preloader {
-      position:fixed;
-      inset:0;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:linear-gradient(180deg, rgba(11,14,17,0.98), rgba(11,14,17,1));
-      z-index:9999;
-      transition: opacity .45s ease, visibility .45s;
-    }
-    #preloader.hidden { opacity:0; visibility:hidden; pointer-events:none; }
-    .preloader-badge{
-      display:flex; flex-direction:column; gap:10px; align-items:center; color:var(--text);
-    }
-    .preloader-badge .dot {
-      width:56px; height:56px; border-radius:12px;
-      background: linear-gradient(90deg,var(--accent), #8c1116);
-      box-shadow: 0 10px 30px rgba(200,36,42,0.15);
-      transform: translateY(0);
-      animation: preDot 1s cubic-bezier(.2,.9,.2,1) infinite;
-    }
-    @keyframes preDot { 0%{ transform:translateY(0) } 50%{ transform:translateY(-8px) } 100%{ transform:translateY(0) } }
-
-    /* subtle parallax layer overlay */
-    .hero-parallax {
-      position: absolute;
-      inset:0;
-      pointer-events:none;
-      background-image: radial-gradient(ellipse at 10% 10%, rgba(200,36,42,0.06), transparent 10%),
-                        radial-gradient(ellipse at 90% 80%, rgba(200,36,42,0.03), transparent 20%);
-      mix-blend-mode: screen;
-      opacity:0.9;
-      z-index:0;
-      transition: transform 0.12s linear;
-      border-radius: 20px;
-    }
-
-    /* Impact numbers */
-    .impact {
-      display:flex;
-      gap:18px;
-      margin-top:18px;
-      align-items:stretch;
-      flex-wrap:wrap;
-    }
-    .impact .stat {
-      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));
-      padding:18px;
-      border-radius:12px;
-      min-width:150px;
-      flex:1;
-      text-align:center;
-      border:1px solid rgba(255,255,255,0.02);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.45);
-    }
-    .impact .stat h3 { margin:0; font-size:22px; color:var(--accent); }
-    .impact .stat p { margin:6px 0 0; color:var(--muted); font-size:13px; }
-
-    /* ensure hero-card content floats above parallax layer */
-    .hero .hero-card { position:relative; z-index:2; }
-    .hero .hero-left { position:relative; z-index:2; }
-
-    /* make call-to-action slightly more prominent on hover (already in style.css but ensure compatibility) */
-    .cta-row .btn { transform: translateZ(0); will-change: transform, box-shadow; }
-
-    /* responsive tweaks for impact */
-    @media (max-width:880px){
-      .impact{ flex-direction:column; }
-    }
-  </style>
 </head>
 <body>
-  <!-- Preloader -->
-  <div id="preloader" aria-hidden="false">
-    <div class="preloader-badge" role="status" aria-live="polite">
-      <div class="dot" aria-hidden="true"></div>
-      <div style="opacity:.9; color:var(--muted); font-size:14px">Loading portfolio…</div>
-    </div>
-  </div>
-
   <header class="nav-wrapper">
     <nav class="container nav">
       <a class="logo" href="index.html">Irqi Muhammad Fakhrezi</a>
@@ -106,10 +25,7 @@
   </header>
 
   <main>
-    <section class="hero container reveal" style="position:relative; overflow:visible; padding-bottom:12px;">
-      <!-- parallax decorative layer -->
-      <div class="hero-parallax" id="heroParallax" aria-hidden="true"></div>
-
+    <section class="hero container reveal">
       <div class="hero-left">
         <h1>Hi, I’m <span class="accent">Irqi Muhammad Fakhrezi</span></h1>
         <p class="lead">Visual Designer • Social Media Specialist • Fotographer • Videographer • Editor</p>
@@ -123,36 +39,16 @@
           <li>irqifakhrezi03@gmail.com</li>
           <li>+62 857-1764-6056</li>
         </ul>
-
-        <!-- Impact Numbers (new premium section) -->
-        <div class="impact reveal" aria-hidden="false">
-          <div class="stat">
-            <h3 class="count" data-target="20">0</h3>
-            <p>Projects</p>
-          </div>
-          <div class="stat">
-            <h3 class="count" data-target="45">0</h3>
-            <p>Design Assets Created</p>
-          </div>
-          <div class="stat">
-            <h3 class="count" data-target="10">0</h3>
-            <p>Collaborations</p>
-          </div>
-          <div class="stat">
-            <h3 class="count" data-target="3">0</h3>
-            <p>Years Experience</p>
-          </div>
-        </div>
       </div>
 
-      <aside class="hero-card" aria-hidden="false">
+      <aside class="hero-card">
         <img src="profile.jpg" alt="Irqi profile" class="profile-photo">
         <div class="card-info">
           <h3>Irqi Muhammad Fakhrezi</h3>
-          <p class="muted">Digital Business Student at University Of Jakarta</p>
+          <p class="muted">Digital Business Student at University Of Jakarta </p>
           <div class="socials">
-            <a href="https://www.linkedin.com/in/irqimuhammadfakhrezi" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
-            <a href="https://instagram.com/irqiee" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+            <a href="https://www.linkedin.com/in/irqimuhammadfakhrezi" aria-label="LinkedIn">LinkedIn</a>
+            <a href="https://instagram.com/irqiee" aria-label="Instagram">Instagram</a>
           </div>
         </div>
       </aside>
@@ -196,68 +92,5 @@
   </div>
 
   <script src="script.js"></script>
-
-  <!-- Inline enhancements: preloader, parallax, counters (light & safe) -->
-  <script>
-    // PRELOADER: hides when page fully loaded (or after 1.2s)
-    (function(){
-      const pre = document.getElementById('preloader');
-      const hide = () => pre && pre.classList.add('hidden');
-      window.addEventListener('load', hide);
-      // fallback
-      setTimeout(hide, 1400);
-    })();
-
-    // PARALLAX: subtle movement based on mouse within hero
-    (function(){
-      const par = document.getElementById('heroParallax');
-      const hero = document.querySelector('.hero');
-      if(!par || !hero) return;
-      hero.addEventListener('mousemove', (e) => {
-        const rect = hero.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5; // -0.5..0.5
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        par.style.transform = `translate3d(${x * 6}px, ${y * 6}px, 0)`;
-      });
-      // small move on scroll
-      window.addEventListener('scroll', () => {
-        const t = Math.min(1, window.scrollY / 600);
-        par.style.opacity = String(1 - t*0.35);
-        par.style.transform = `translate3d(0, ${-t * 10}px, 0)`;
-      }, { passive: true });
-    })();
-
-    // COUNTERS: animated numbers for Impact section
-    (function(){
-      const counters = document.querySelectorAll('.count');
-      if(!counters.length) return;
-      const animate = (el, to) => {
-        let start = 0;
-        const dur = 900;
-        const startTs = performance.now();
-        const step = (ts) => {
-          const p = Math.min(1, (ts - startTs) / dur);
-          el.textContent = Math.floor(p * to);
-          if(p < 1) requestAnimationFrame(step);
-          else el.textContent = to;
-        };
-        requestAnimationFrame(step);
-      };
-
-      // trigger when in view
-      const obs = new IntersectionObserver(entries => {
-        entries.forEach(en => {
-          if(en.isIntersecting){
-            const el = en.target;
-            const target = parseInt(el.getAttribute('data-target') || '0', 10);
-            animate(el, target);
-            obs.unobserve(el);
-          }
-        });
-      }, {threshold: 0.4});
-
-      counters.forEach(c => obs.observe(c));
-    })();
-  </script>
 </body>
 </html>
