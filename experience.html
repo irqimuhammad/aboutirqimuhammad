@@ -7,13 +7,29 @@
   <link rel="stylesheet" href="style.css">
   
   <style>
-    /* Memaksa kartu agar tingginya 100% mengisi Grid */
+    /* CUSTOM GRID KHUSUS HALAMAN INI */
+    .experience-grid {
+      display: grid;
+      /* KUNCI: Paksa jadi 2 kolom sama lebar */
+      grid-template-columns: 1fr 1fr; 
+      gap: 24px;
+      margin-top: 12px;
+    }
+
+    /* Agar di HP tetap turun ke bawah (responsif) */
+    @media (max-width: 768px) {
+      .experience-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Styling Kartu */
     .experience-card {
       background: var(--card);
       border-radius: 14px;
       border: 1px solid rgba(255, 255, 255, 0.02);
-      padding: 30px; /* Padding luas biar elegan */
-      height: 100%; /* KUNCI: Agar tinggi kartu sama rata */
+      padding: 30px;
+      height: 100%; /* Agar tinggi kartu sama rata */
       display: flex;
       flex-direction: column;
       transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
@@ -25,9 +41,9 @@
       border-color: rgba(255,255,255,0.1);
     }
 
-    /* Styling List Jobdesk */
+    /* Styling List */
     .job-desc {
-      margin-top: auto; /* Dorong list ke bawah agar rapi */
+      margin-top: auto;
       padding-left: 0;
       list-style: none;
     }
@@ -45,10 +61,9 @@
       position: absolute;
       left: 0;
       font-weight: bold;
-      font-size: 18px; /* Bullet lebih besar sedikit */
+      font-size: 18px;
     }
 
-    /* Label Waktu */
     .time-badge {
       display: inline-block;
       background: rgba(255,255,255,0.05);
@@ -90,7 +105,7 @@
         <p class="muted">Pengalaman Internship dan Project.</p>
       </div>
 
-      <div class="projects-grid">
+      <div class="experience-grid">
 
         <article>
           <div class="experience-card">
