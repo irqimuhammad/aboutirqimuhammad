@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About — Irqi Muhammad Fakhrezi</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Agar kolom About Me juga punya bingkai 'mahal' seperti sidebar */
+    .about-card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.02);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+  </style>
 </head>
 <body>
   <header class="nav-wrapper">
@@ -27,8 +37,9 @@
 
   <main class="container reveal">
     <section class="section about-grid">
-      <div>
-        <h2>About Me</h2>
+      
+      <div class="about-card">
+        <h2 style="margin-top:0;">About Me</h2>
         <p>
           Perkenalkan, saya <strong>Irqi Muhammad Fakhrezi</strong> (lahir 3 Juni 2006).
           Saya merupakan lulusan tahun ajaran 2024 dari SMKN 7 Kabupaten Tangerang, Jurusan Desain Komunikasi Visual. Saat ini, saya melanjutkan pendidikan di Universitas Negeri Jakarta, pada Program Studi Bisnis Digital, sebagai langkah untuk mengembangkan kompetensi di bidang pemasaran digital dan teknologi bisnis.
@@ -50,7 +61,9 @@
           <li>Fleksibilitas: Mampu beradaptasi dan menerapkan instruksi yang diberikan.</li>
         </ul>
 
-        <a class="btn" href="CV_Irqi_Muhammad_Fakhrezi.pdf" download>Unduh CV (PDF)</a>
+        <div style="margin-top: 20px;">
+          <a class="btn" href="CV_Irqi_Muhammad_Fakhrezi.pdf" download>Unduh CV (PDF)</a>
+        </div>
       </div>
 
       <aside class="card mini">
@@ -77,7 +90,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
