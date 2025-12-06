@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <header class="nav-wrapper">
     <nav class="container nav">
       <a class="logo" href="index.html">Irqi Muhammad Fakhrezi</a>
@@ -25,43 +26,62 @@
     </nav>
   </header>
 
-  <main class="container reveal">
-    <section class="section">
+  <main>
+    <section class="section container reveal">
       <div class="intro" style="margin-bottom: 2rem; text-align:center;">
-        <h2>My <span class="accent">Certificates</span></h2>
-        <p class="muted">Klik gambar untuk memperbesar tampilan sertifikat.</p>
+        <h1>My <span class="accent">Certificates</span></h1>
+        <p class="lead">Bukti kompetensi, partisipasi, dan apresiasi profesional.</p>
       </div>
 
-      <div class="cert-grid">
-        <figure class="cert-thumb">
-          <img src="cert1.jpg" alt="ASSA Internship" data-caption="ASSA - Certificate of Completion">
-          <figcaption>ASSA — Internship Certificate</figcaption>
-        </figure>
+      <div class="projects-grid">
+        
+        <article class="project-card">
+          <div class="thumb" style="background-image: url('cert1.jpg');"></div>
+          <div class="project-info">
+            <h3>ASSA Internship</h3>
+            <p class="muted">Certificate of Completion — Internship Program sebagai Graphic Design & Social Media Specialist.</p>
+          </div>
+        </article>
 
-        <figure class="cert-thumb">
-          <img src="cert2.jpg" alt="Saylor Academy" data-caption="Saylor Academy — Business Communication">
-          <figcaption>Saylor Academy — Business Communication</figcaption>
-        </figure>
+        <article class="project-card">
+          <div class="thumb" style="background-image: url('cert2.jpg');"></div>
+          <div class="project-info">
+            <h3>Business Communication</h3>
+            <p class="muted">Saylor Academy — Sertifikasi penyelesaian kursus komunikasi bisnis profesional.</p>
+          </div>
+        </article>
 
-        <figure class="cert-thumb">
-          <img src="cert3.jpg" alt="Sanggar Daya Presta" data-caption="Sanggar Daya Presta — Certificate of Appreciation">
-          <figcaption>Sanggar Daya Presta — Appreciation</figcaption>
-        </figure>
+        <article class="project-card">
+          <div class="thumb" style="background-image: url('cert3.jpg');"></div>
+          <div class="project-info">
+            <h3>Sanggar Daya Presta</h3>
+            <p class="muted">Certificate of Appreciation — Penghargaan atas dedikasi sebagai tim desain partner.</p>
+          </div>
+        </article>
 
-        <figure class="cert-thumb">
-          <img src="cert4.jpg" alt="Beats 2.0" data-caption="Beats 2.0 — Certificate of Participant">
-          <figcaption>Beats 2.0 — Participation</figcaption>
-        </figure>
+        <article class="project-card">
+          <div class="thumb" style="background-image: url('cert4.jpg');"></div>
+          <div class="project-info">
+            <h3>Beats 2.0</h3>
+            <p class="muted">Certificate of Participant — Partisipasi aktif dalam event Beats 2.0.</p>
+          </div>
+        </article>
 
-        <figure class="cert-thumb">
-          <img src="cert5.jpg" alt="Journalistic" data-caption="Journalistic community — Certificate of Participant">
-          <figcaption>Journalistic Community — Participation</figcaption>
-        </figure>
+        <article class="project-card">
+          <div class="thumb" style="background-image: url('cert5.jpg');"></div>
+          <div class="project-info">
+            <h3>Journalistic Community</h3>
+            <p class="muted">Certificate of Participant — Pelatihan jurnalistik dan media kreatif.</p>
+          </div>
+        </article>
 
-        <figure class="cert-thumb">
-          <img src="cert6.jpg" alt="Legislative Seminar" data-caption="Legislative Seminar — Certificate of Participant">
-          <figcaption>Legislative Seminar — Participation</figcaption>
-        </figure>
+        <article class="project-card">
+          <div class="thumb" style="background-image: url('cert6.jpg');"></div>
+          <div class="project-info">
+            <h3>Legislative Seminar</h3>
+            <p class="muted">Certificate of Participant — Seminar legislatif tingkat mahasiswa.</p>
+          </div>
+        </article>
 
       </div>
     </section>
@@ -70,7 +90,6 @@
   <div id="lightbox" class="lightbox" aria-hidden="true">
     <button id="lb-close" class="lb-close" aria-label="Close">✕</button>
     <img id="lb-img" src="" alt="Certificate Preview" />
-    <div id="lb-caption" class="lb-caption"></div>
   </div>
 
   <footer class="footer">
