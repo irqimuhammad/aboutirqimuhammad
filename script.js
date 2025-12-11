@@ -1,29 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
   const burger = document.getElementById('burger');
+  const navLinks = document.querySelector('.nav-links'); // Pastikan select class nav-links
   const yearEls = document.querySelectorAll('#year');
   
   // Set Tahun Otomatis
   yearEls.forEach(el => el.textContent = new Date().getFullYear());
 
-  // Burger Menu Toggle
-  if (burger) {
+  // --- BURGER MENU (Updated & Simplified) ---
+  if (burger && navLinks) {
     burger.addEventListener('click', () => {
-      const links = document.querySelector('.nav-links');
-      if (!links) return;
-      links.classList.toggle('open');
-      if (links.classList.contains('open')) {
-        Object.assign(links.style, {
-          display: 'flex', flexDirection: 'column', gap: '12px', padding: '12px',
-          marginTop: '8px', background: 'var(--card)', position: 'absolute',
-          top: '100%', left: '0', right: '0', borderBottom: '1px solid rgba(255,255,255,0.05)'
-        });
+      // Kita hanya perlu toggle class 'open'
+      // Biarkan CSS yang mengatur tampilannya (posisi, warna, dll)
+      navLinks.classList.toggle('open');
+      
+      // Ubah icon burger (Opsional)
+      if (navLinks.classList.contains('open')) {
+        burger.textContent = '✕'; // Icon Close
       } else {
-        links.style.display = '';
+        burger.textContent = '☰'; // Icon Burger
       }
+    });
+
+    // Tutup menu saat link diklik (Biar user ga repot tutup sendiri)
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        burger.textContent = '☰';
+      });
     });
   }
 
-  // Reveal Animation
+  // --- REVEAL ANIMATION ---
   const reveals = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -53,11 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- UNIVERSAL LIGHTBOX LOGIC (Updated) ---
+  // --- LIGHTBOX LOGIC ---
   const lightbox = document.getElementById('lightbox');
   const lbImg = document.getElementById('lb-img');
   const lbClose = document.getElementById('lb-close');
-  const lbCaption = document.getElementById('lb-caption'); // Ambil elemen caption
+  const lbCaption = document.getElementById('lb-caption');
   
   // 1. Logic untuk PROJECTS (Background Image)
   const thumbs = document.querySelectorAll('.thumb');
@@ -65,34 +72,32 @@ document.addEventListener('DOMContentLoaded', () => {
     thumb.addEventListener('click', () => {
       const style = window.getComputedStyle(thumb);
       const bgImage = style.backgroundImage;
+      // Membersihkan string url("...")
       const src = bgImage.slice(4, -1).replace(/"/g, "");
       
       if (src && src !== 'none') {
         lbImg.src = src;
-        if(lbCaption) lbCaption.textContent = ""; // Kosongkan caption untuk project
-        lightbox.classList.add('active');
+        if(lbCaption) lbCaption.textContent = ""; 
+        if(lightbox) lightbox.classList.add('active');
       }
     });
   });
 
-  // 2. Logic untuk CERTIFICATES (Img Tag) - BARU!
+  // 2. Logic untuk CERTIFICATES (Img Tag)
   const certImages = document.querySelectorAll('.cert-thumb img');
   certImages.forEach(img => {
     img.addEventListener('click', () => {
-      lbImg.src = img.src; // Ambil src langsung dari tag img
-      
-      // Ambil text dari atribut data-caption
+      lbImg.src = img.src;
       const captionText = img.getAttribute('data-caption');
       if(lbCaption) lbCaption.textContent = captionText || ""; 
-      
-      lightbox.classList.add('active');
+      if(lightbox) lightbox.classList.add('active');
     });
   });
 
   // Fungsi Tutup Lightbox
   const closeLb = () => {
-    lightbox.classList.remove('active');
-    setTimeout(() => { lbImg.src = ''; }, 300);
+    if(lightbox) lightbox.classList.remove('active');
+    setTimeout(() => { if(lbImg) lbImg.src = ''; }, 300);
   };
 
   if (lbClose) lbClose.addEventListener('click', closeLb);
